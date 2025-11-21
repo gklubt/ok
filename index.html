@@ -16,7 +16,6 @@
       background: url('background.jpg') no-repeat center center/cover;
     }
 
-    /* Затемнення фону */
     body::before {
       content: "";
       position: absolute;
@@ -32,7 +31,6 @@
       position: relative;
       z-index: 1;
     }
-
     .photo-circle {
       width: 160px;
       height: 160px;
@@ -42,27 +40,14 @@
       border: 3px solid #d4af37;
       box-shadow: 0 0 20px #d4af37;
     }
-
-    .photo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    h1 {
-      font-size: 2em;
-      margin-bottom: 15px;
-      color: #ffd700;
-    }
-
+    .photo-circle img { width: 100%; height: 100%; object-fit: cover; }
+    h1 { font-size: 2em; color: #ffd700; margin-bottom: 15px; }
     .description {
-      font-size: 1.1em;
-      line-height: 1.6;
       max-width: 600px;
       margin: 0 auto 30px auto;
-      color: #f0f0f0;
       white-space: pre-line;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
 
     .telegram-button {
@@ -73,34 +58,58 @@
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease;
     }
-
     .telegram-button:hover {
-      background-color: #b8860b;
-      color: white;
+      background-color: #b8860b; color: #fff;
     }
   </style>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code - (оставляем как есть) -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1438222580804749');
-    fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1438222580804749');
+  fbq('track', 'PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1438222580804749&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1438222580804749&ev=PageView&noscript=1"/></noscript>
+
+  <!-- TikTok Pixel Code -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject = t;
+    var ttq = w[t] = w[t] || [];
+    ttq.methods = [
+      "page","track","identify","instances","debug","on","off","once","ready","alias"
+    ];
+    ttq.setAndDefer = function(t,e){
+      t[e]=function(){
+        t.push([e].concat(Array.prototype.slice.call(arguments,0)))
+      }
+    };
+    for(var i=0;i<ttq.methods.length;i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+    ttq.load = function(e) {
+      var n="https://analytics.tiktok.com/i18n/pixel/events.js";
+      ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._u = n;
+      var s = document.createElement("script");
+      s.async = true; s.src = n;
+      var a = document.getElementsByTagName("script")[0];
+      a.parentNode.insertBefore(s, a)
+    };
+
+    ttq.load('D426HGBC77UA61AHKGG0'); // 
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- End TikTok Pixel Code -->
+
 </head>
 
 <body>
@@ -119,7 +128,11 @@
 ✅ 100% на перший депозит
     </div>
 
-    <a class="telegram-button" href="https://t.me/+net-S8JU5gxlMjNi" target="_blank">Почати грати</a>
+    <a class="telegram-button" href="https://t.me/+net-S8JU5gxlMjNi" target="_blank"
+       onclick="ttq.track('ClickButton'); fbq('track', 'Contact');">
+       Почати грати
+    </a>
+
   </div>
 </body>
 </html>
